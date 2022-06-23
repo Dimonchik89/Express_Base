@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 // 2-й способо роутинга по страницам
 app.use(express.static(path.resolve(__dirname, "static")))
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 app.use(serverRoutes)
 
 

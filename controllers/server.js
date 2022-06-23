@@ -8,4 +8,20 @@ let server = [
 export const getAll = (req, res) => {
     // res.status(200).json(server);
     res.json(server);
+
+}
+
+export const create = (req, res) => {
+    const newServe = {
+        id: Date.now().toString(),
+        ...req.body
+    }
+    server.push(newServe);
+    res.status(201).json(newServe)
+}
+
+export const remove = (req, res) => {
+    console.log("id", req.params.id);
+    server = server.filter(item => item.id !== id)
+    res.json({message: "Server has been removed"})
 }

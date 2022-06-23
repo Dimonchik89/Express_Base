@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { getAll } from "../controllers/server.js";
+import { getAll, create, remove } from "../controllers/server.js";
 
 const router = Router();
 
@@ -10,5 +10,9 @@ const router = Router();
 
 // 2-й способ (приоритетнее)
 router.get("/api/serve", getAll)
+
+router.post("/api/serve", create)
+
+router.delete("/api/serve/:id", remove)
 
 export default router;
